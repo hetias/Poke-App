@@ -1,35 +1,84 @@
+:root{
+    --normal-color: #A8A878;
+    --fire-color: #F08030;
+    --water-color: #6890F0;
+}
+
 *{
     padding: 0px;
     margin: 0px;
 }
 
-#pokedex{    
+body{
+    background-color: #cc322a;
+}
+
+#pokedex{
+
 }
 
 #poke-screen{
-    background-color: red;
+    background-color: #b45c64;
 }
 
 .poke-form{
-    background-color:blue;
-    padding: 10px;
+    background-color:#a7b9d3;
+    padding: 1em;
     display: flex;
     justify-content: center;
 }
 
+.poke-form form input{
+    background-color: #909090;
+    border: none;
+    padding: 0.5em;
+    border-radius: 5%;
+}
+
+.poke-form form input:focus{
+    border:none;
+    color: #909090;
+    background-color: #202020;
+}
+
 #pokemonInformation{
-    background-color: green;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+
+    padding: 10px;
 }
 
 #pokemon-sprite{
-    background-color: pink;
+    height: 25vh;
+    margin: 0 auto;
+    padding: 10px;
+    //background-color: pink;
 }
 
 #pokemon-sprite img{
-    background-color: green;
+    height: 100%;
+    border-radius: 100%;
+    background-color: orange;
 }
 
 #pokemon-info{
+    margin: 0 auto;
+    padding: 1em;
+    font-size: 22px;
+    background-color: #e6d596;
+    //color:#303030;
+    border-radius: 5%;
+}
 
-    background-color: purple;
+#pokemon-info h2{
+    text-align: center;
+}
+
+.element{
+    background-color: #909090;
+    padding: 0.1em;
+    border-radius: 0.5em;
+    margin: 5px;
 }
