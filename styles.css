@@ -1,0 +1,35 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+#pokedex{    
+}
+
+#poke-screen{
+    background-color: red;
+}
+
+.poke-form{
+    background-color:blue;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#pokemonInformation{
+    background-color: green;
+}
+
+#pokemon-sprite{
+    background-color: pink;
+}
+
+#pokemon-sprite img{
+    background-color: green;
+}
+
+#pokemon-info{
+
+    background-color: purple;
+}

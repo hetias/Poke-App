@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Api</title>
+  </head>
+
+  <body>
+    
+    
+    <div id="pokedex">
+      <div id="poke-screen">
+	<!-- FORM -->
+	<div class="poke-form">
+	  <form action="#" onsubmit="OnSubmit(); return false" id="" autocomplete="false">
+	    <label for="search-pokemon">Pokemon name: </label>
+	    <input type="text" placeholder="name / id" name="search-pokemon" id="pokemonInput" required>
+	    <button type="submit" id="searchPokemon"> Search </button>
+	  </form>
+	</div>
+	<!-- INFORMATION -->
+	
+	<div id="pokemonInformation" style="display: none">
+	  <div id="pokemon-sprite">
+	    <img id="pokemonSprite" src="#">
+	  </div>
+	  
+	  <div id="pokemon-info">				
+	    <h2 id="pokemonName"></h2>
+	    <p id="pokemonId"></p>
+	    <p id="pokemonWeight"></p>
+	    <p id="pokemonHeight"></p>
+	    <p id="pokemonType"></p>
+	    <p id="pokemonAbility"></p>
+	    <div id="pokemonStats">
+	      <h3>Base stats</h3>
+	      <p id="statHp"></p>
+	      <p id="statAttack"></p>
+	      <p id="statDefense"></p>
+	      <p id="statSpecialAttack"></p>
+	      <p id="statSpecialDefense"></p>
+	      <p id="statExperience"></p>
+	    </div>
+	  </div>
+	</div>
+	
+	<!-- WARNING -->
+	
+	<p id="errorMessage" style="display:none">Invalid pokemon name or id, try another one...</p>
+      </div>
+    </div>
+    
+    
+    <script src="app.js"></script>
+    
+  </body>
+
+</html>
