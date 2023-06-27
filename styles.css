@@ -12,7 +12,7 @@ body{
 }
 
 #poke-screen{
-    background-color: #b45c64;
+    background-color: #cc322a;
 }
 
 .poke-form{
@@ -44,6 +44,7 @@ body{
 }
 
 #pokemon-sprite{
+    display: flex;
     height: 20vh;
     margin: 0 auto;
     padding: 10px;
@@ -55,12 +56,29 @@ body{
     background-color: orange;
 }
 
+#pokemonTypes p{
+    display: inline;
+    margin: 5px;
+}
+
+#pokemonSprite div{
+    height: 1vh;
+    position: relative;
+}
+
+#pokemonId{
+    padding: 0.2em;
+    background-color: #e6d596;
+    border-radius: 100%;
+    color: #cc322a;
+    font-weight: 900;
+}
+
 #pokemon-info{
     margin: 0 auto;
     padding: 0.5em;
     font-size: 22px;
     background-color: #e6d596;
-    //color:#303030;
     border-radius: 5%;
 }
 
