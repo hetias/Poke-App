@@ -52,13 +52,13 @@ const searchInput = document.getElementById("pokemonInput");
 var pokemonInfo;
 
 //display elements
-var pokemonInformation = document.getElementById("pokemonInformation");
+var pokemonContainer = document.getElementById("pokemonContainer");
 var pokemonName = document.getElementById("pokemonName");
 var pokemonWeight = document.getElementById("pokemonWeight");
 var pokemonHeight = document.getElementById("pokemonHeight");
 var pokemonTypes = document.getElementById("pokemonTypes");
 var pokemonId = document.getElementById("pokemonId");
-var pokemonAbility = document.getElementById("pokemonAbility");
+
 var pokemonStats = document.getElementById("pokemonStats");
 var pokemonStatHp = document.getElementById("statHp");
 var pokemonStatAttack = document.getElementById("statAttack");
@@ -81,11 +81,10 @@ async function OnSubmit(){
 
 	    console.log(pokemonInfo);
 	    
-	    errorMessage.style.display = "none";
 	    updateInformation();
 	}catch(error){
 	    console.log("there was an error", error);
-	    errorMessage.style.display = "block";
+	    errorMessage.style.display = "absolute";
 	}
     }
 }
@@ -95,7 +94,7 @@ async function OnSubmit(){
 //replace display elements values with correct pokemon values
 
 function updateInformation(){
-    pokemonInformation.style.display = "flex";
+    pokemonContainer.style.display = "flex";
 
     pokemonSprite.src = pokemonInfo.sprites.front_default;
     
@@ -103,42 +102,61 @@ function updateInformation(){
     
     pokemonId.innerHTML = `${pokemonInfo.id}`;
 
-    pokemonWeight.innerHTML = `Weight: ${(pokemonInfo.weight * 0.1).toFixed(1)}Kg`;
+    /*abilities list*/    
+    let abilitiesList = document.getElementsByClassName("abilitiesList");
+    while(abilitiesList[0].childNodes.length > 1){
+	abilitiesList[0].removeChild(abilitiesList[0].lastChild);
+    }
+
+    /*size and weight*/
+    pokemonWeight.innerHTML = `${(pokemonInfo.weight * 0.1).toFixed(1)}Kg \n Weight`;
     pokemonWeight.setAttribute("class", "element");
-    pokemonHeight.innerHTML = `Height: ${(pokemonInfo.height * 0.1).toFixed(2)}cm`;
-    pokemonHeight.setAttribute("class", "element");
     
-    let _pokemonTypes = " ";
-    while(pokemonTypes.childNodes.length > 2){
-	pokemonTypes.removeChild(pokemonTypes.lastChild);
+    pokemonWeight.style.display = "flex";
+    pokemonHeight.innerHTML = `${(pokemonInfo.height * 0.1).toFixed(2)}cm \n Height`;
+    pokemonHeight.setAttribute("class", "element");
+
+    /*types list*/
+    let _typesList =  document.getElementsByClassName("typesList");
+    while(_typesList[0].childNodes.length > 1){
+	_typesList[0].removeChild(_typesList[0].lastChild);
     }
     
     pokemonInfo.types.forEach( element =>{
+	const _listElement = document.createElement("li");
 	const _typeText = document.createTextNode(element.type.name);
-	const _node = document.createElement("p");
 
 	typeColors.forEach(typeColor =>{
 	    if(typeColor.name == element.type.name){
-		_node.classList.add("element");
-		_node.style.backgroundColor = `${typeColor.color}`;
+		_listElement.classList.add("element");
+		_listElement.style.backgroundColor = `${typeColor.color}`;
+		_listElement.style.color = 'black';
+		_listElement.appendChild(_typeText);
 	    }
 	});
+
+	_typesList[0].appendChild(_listElement);
+    });
+
+    /*stats list*/
+    let statList = document.getElementsByClassName("statList");
+
+    while(statList[0].childNodes.length > 1){
+	statList[0].removeChild(statList[0].lastChild);
+    }
+
+    pokemonInfo.stats.forEach(element =>{
+	const _listElement = document.createElement("li");
+	const _parrElement = document.createElement("p");
+	const _statText = document.createTextNode(`${element.stat.name} - ${element.base_stat}`);
 	
-	pokemonTypes.appendChild(_node);
-	_node.appendChild(_typeText);
+	/*_listElement.classList.add("statElement");*/
+	_listElement.classList.add("element");
+	_listElement.classList.add("statElement");
+
+	_parrElement.appendChild(_statText);
+	_listElement.appendChild(_parrElement);
+	statList[0].appendChild(_listElement);
     });
-
-
-    let _pokeAbilities = "";
-    pokemonInfo.abilities.forEach( abilities =>{
-	_pokeAbilities += abilities.ability.name + " ";
-    });
-    pokemonAbility.innerHTML = `${_pokeAbilities}`;
-
-    pokemonStatHp.innerHTML = `${pokemonInfo.stats[0].stat.name}: ${pokemonInfo.stats[0].base_stat}`;
-    pokemonStatAttack.innerHTML = `${pokemonInfo.stats[1].stat.name}: ${pokemonInfo.stats[1].base_stat}`;
-    pokemonStatDefense.innerHTML = `${pokemonInfo.stats[2].stat.name}: ${pokemonInfo.stats[2].base_stat}`;
-    pokemonStatSpecialAttack.innerHTML = `${pokemonInfo.stats[3].stat.name}: ${pokemonInfo.stats[3].base_stat}`;
-    pokemonStatSpecialDefense.innerHTML = `${pokemonInfo.stats[4].stat.name}: ${pokemonInfo.stats[4].base_stat}`;
-    pokemonStatExperience.innerHTML = `Experience: ${pokemonInfo.base_experience}`;
+        
 }

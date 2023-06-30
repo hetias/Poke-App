@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap" rel="stylesheet">
     <title>Api</title>
   </head>
 
@@ -14,7 +17,7 @@
     <div id="pokedex">
       <div id="poke-screen">
 	<!-- FORM -->
-	<div class="poke-form">
+	<div class="searchForm">
 	  <form action="#" onsubmit="OnSubmit(); return false" id="" autocomplete="false">
 
 	    <input type="text" placeholder="name / id" name="search-pokemon" id="pokemonInput" required>
@@ -23,7 +26,7 @@
 	</div>
 	<!-- INFORMATION -->
 	
-	<div id="pokemonInformation" style="display: none">
+	<div id="pokemonContainer" style="display: none">
 	  <div id="pokemon-sprite">
 	    <img id="pokemonSprite" src="#">
 	    <div>
@@ -31,26 +34,34 @@
 	    </div>
 	  </div>
 	  
-	  <div id="pokemon-info">				
-	    <h2 id="pokemonName"></h2>
-	    <div>
-	      <h2>Abilities</h2>
-	      <p id="pokemonAbility"></p>
+	  <div id="pokemonInfo">				
+	    <h1 id="pokemonName" class="specialTitle"></h1>
+	    <div class="pokemonAbilities">
+	      <h2 class="specialTitle">Abilities</h2>
+	      <div class="abilitiesList">
+		
+	      </div>
 	    </div>
-	    <p id="pokemonWeight"></p>
-	    <p id="pokemonHeight"></p>
+
+	    <div class="pokemonDimensions">
+	      <p id="pokemonWeight"></p>
+	      <p id="pokemonHeight"></p>
+	    </div>
+
 	    <div id="pokemonTypes">
-	      <h2>Types</h2>
+	      <h2 class="specialTitle">Types</h2>
+	      <ul class="typesList">
+		
+	      </ul>
 	    </div>
+	    
 	    <div id="pokemonStats">
-	      <h2>Base stats</h2>
-	      <p id="statHp"></p>
-	      <p id="statAttack"></p>
-	      <p id="statDefense"></p>
-	      <p id="statSpecialAttack"></p>
-	      <p id="statSpecialDefense"></p>
-	      <p id="statExperience"></p>
+	      <h2 class="specialTitle">Base stats</h2>
+	      <ul class="statList">
+
+	      </ul>
 	    </div>
+	    
 	  </div>
 	</div>
 	
